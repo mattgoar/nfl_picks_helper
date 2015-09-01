@@ -1,0 +1,145 @@
+<!-- Validation failure messages -->
+<% if @nfl_result.errors.any? %>
+  <% @nfl_result.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Nfl Result</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <form action="/create_nfl_result" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+      <!-- Label and input for week -->
+
+      <div class="form-group">
+        <label for="week" class="control-label">
+          Week
+        </label>
+
+
+        <input type="text" id="week" name="week" placeholder="Week" class="form-control" value="<%= @nfl_result.week %>">
+
+      </div>
+
+
+
+      <!-- Label and input for home -->
+
+      <div class="form-group">
+        <label for="home" class="control-label">
+          Home
+        </label>
+
+
+        <input type="text" id="home" name="home" placeholder="Home" class="form-control" value="<%= @nfl_result.home %>">
+
+      </div>
+
+
+
+      <!-- Label and input for visitor -->
+
+      <div class="form-group">
+        <label for="visitor" class="control-label">
+          Visitor
+        </label>
+
+
+        <input type="text" id="visitor" name="visitor" placeholder="Visitor" class="form-control" value="<%= @nfl_result.visitor %>">
+
+      </div>
+
+
+
+      <!-- Label and input for result -->
+
+      <div class="form-group">
+        <label for="result" class="control-label">
+          Result
+        </label>
+
+
+        <input type="text" id="result" name="result" placeholder="Result" class="form-control" value="<%= @nfl_result.result %>">
+
+      </div>
+
+
+
+      <!-- Label and input for eid -->
+
+      <div class="form-group">
+        <label for="eid" class="control-label">
+          Eid
+        </label>
+
+
+        <input type="text" id="eid" name="eid" placeholder="Eid" class="form-control" value="<%= @nfl_result.eid %>">
+
+      </div>
+
+
+
+      <!-- Label and input for gsis -->
+
+      <div class="form-group">
+        <label for="gsis" class="control-label">
+          Gsis
+        </label>
+
+
+        <input type="text" id="gsis" name="gsis" placeholder="Gsis" class="form-control" value="<%= @nfl_result.gsis %>">
+
+      </div>
+
+
+
+      <!-- Label and input for game_date -->
+
+      <div class="form-group">
+        <label for="game_date" class="control-label">
+          Game date
+        </label>
+
+
+        <input type="text" id="game_date" name="game_date" placeholder="Game date" class="form-control" value="<%= @nfl_result.game_date %>">
+
+      </div>
+
+
+
+      <!-- Label and input for game_time -->
+
+      <div class="form-group">
+        <label for="game_time" class="control-label">
+          Game time
+        </label>
+
+
+        <input type="text" id="game_time" name="game_time" placeholder="Game time" class="form-control" value="<%= @nfl_result.game_time %>">
+
+      </div>
+
+
+
+      <button class="btn btn-success">
+        Create Nfl Result
+      </button>
+      or
+      <a href="/nfl_results">Cancel</a>
+
+    </form>
+
+  </div>
+</div>

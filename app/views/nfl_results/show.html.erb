@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h3>Nfl Result #<%= @nfl_result.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Week</dt>
+      <dd><%= @nfl_result.week %></dd>
+
+
+      <dt>Home</dt>
+      <dd><%= @nfl_result.home %></dd>
+
+
+      <dt>Visitor</dt>
+      <dd><%= @nfl_result.visitor %></dd>
+
+
+      <dt>Result</dt>
+      <dd><%= @nfl_result.result %></dd>
+
+
+      <dt>Eid</dt>
+      <dd><%= @nfl_result.eid %></dd>
+
+
+      <dt>Gsis</dt>
+      <dd><%= @nfl_result.gsis %></dd>
+
+
+      <dt>Game date</dt>
+      <dd><%= @nfl_result.game_date %></dd>
+
+
+      <dt>Game time</dt>
+      <dd><%= @nfl_result.game_time %></dd>
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/nfl_results" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/nfl_results/<%= @nfl_result.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_nfl_result/<%= @nfl_result.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+
+    </div>
+  </div>
+</div>
