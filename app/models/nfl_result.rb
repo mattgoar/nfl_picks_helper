@@ -34,4 +34,27 @@ class NflResult < ActiveRecord::Base
     end
   end
 
+  def self.update_results(week)
+    s = Net::HTTP.get_response(URI.parse('http://www.nfl.com/ajax/scorestrip?season=2015&seasonType=REG&week='+(week.to_s))).body
+    parsed_data = JSON.parse(Hash.from_xml(s).to_json)
+    game_data = parsed_data["ss"]["gms"]["g"]
+
+    num_games = game_data.count
+    current_game = 0
+    while current_game < num_games do
+      game = NflResult.find_by(gsis: game_data[current_game]["gsis"])
+      game.result =
+       if game_data[current_game]["hs"] = ""
+          then 'Not Played'
+        elsif game_data[current_game]["vs"] > game_data[current_game]["hs"]
+          then game_data[current_game]["v"]
+        elsif game_data[current_game]["vs"] < game_data[current_game]["hs"]
+          then game_data[current_game]["h"]
+        else 'Tie'
+        end
+      game.save
+      current_game = current_game + 1
+    end
+  end
+
 end

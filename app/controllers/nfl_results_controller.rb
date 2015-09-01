@@ -2,7 +2,12 @@ class NflResultsController < ApplicationController
   def index
     @nfl_results = NflResult.all
     @result = pivot()
+  end
 
+  def update
+    week = params[:id]
+    NflResult.update_results(week)
+    redirect_to "/nfl_results", :notice => "Week " + (week.to_s)  + " updated successfully."
   end
 
   # def show
@@ -46,8 +51,7 @@ class NflResultsController < ApplicationController
   #   @nfl_result = NflResult.find(params[:id])
   # end
 
-  # def update
-  #   @nfl_result = NflResult.find(params[:id])
+
 
 
   #   @nfl_result.week = params[:week]

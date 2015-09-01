@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   root to: "nfl_results#index"
   # Routes for the Nfl_result resource:
   # CREATE
-  get "/nfl_results/new", :controller => "nfl_results", :action => "new"
-  post "/create_nfl_result", :controller => "nfl_results", :action => "create"
+
 
   # READ
   get "/nfl_results", :controller => "nfl_results", :action => "index"
-  get "/nfl_results/:id", :controller => "nfl_results", :action => "show"
+
+  # Update
+  get "/update_results/:id", :controller => "nfl_results", :action => "update"
 
   # UPDATE
   # get "/nfl_results/:id/edit", :controller => "nfl_results", :action => "edit"
